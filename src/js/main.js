@@ -1,3 +1,18 @@
+document.documentElement.classList.add("js-enabled");
+const cacheDom = document.querySelector(".parallax");
+window.addEventListener("scroll", () => {
+    const scrolledHeight = window.scrollY;
+    const limit = cacheDom.offsetTop + cacheDom.offsetHeight;
+    //console.log(scrolledHeight, cacheDom.offsetTop);
+    if (scrolledHeight > cacheDom.offsetTop && scrolledHeight <= limit) {
+      cacheDom.style.backgroundPositionY = (scrolledHeight - cacheDom.offsetTop) / 2 + "px";
+    } else {
+      cacheDom.style.backgroundPositionY = "0";
+    }
+});
+
+/*
+
 (function () {
   const app = {
     cacheDom() {
@@ -23,3 +38,5 @@
   };
   app.init();
 })();
+
+*/
